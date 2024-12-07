@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b27ld4psvgp3g"]
+
+[ext_resource type="Texture2D" uid="uid://d1g0gsmpq3r0b" path="res://ART/SpaceSaw.png" id="1_gnd58"]
+[ext_resource type="Script" path="res://SCRIPTS/saw_ship.gd" id="1_l44f5"]
+[ext_resource type="PackedScene" uid="uid://wrksir8pv3sq" path="res://SCENES/enemy_bullet.tscn" id="2_6kua3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u23cx"]
+
+[node name="SawShip" type="Area2D" groups=["enemy", "minimap_objects"]]
+scale = Vector2(3, 3)
+script = ExtResource("1_l44f5")
+Bullet = ExtResource("2_6kua3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_gnd58")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u23cx")

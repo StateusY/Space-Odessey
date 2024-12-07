@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://u6li6qc5u3rt"]
+
+[ext_resource type="Texture2D" uid="uid://df8uqpw6767mn" path="res://ART/spaceMiniMapTile.png" id="1_ciy81"]
+[ext_resource type="Texture2D" uid="uid://d0nhqjvlulq2j" path="res://ART/spaceMiniMap.png" id="1_dgtro"]
+[ext_resource type="Script" path="res://SCRIPTS/mini_map.gd" id="1_pqv5f"]
+[ext_resource type="Texture2D" uid="uid://dwkayudmmr4la" path="res://ART/spaceMiniMapPlayer.png" id="2_vy8h4"]
+[ext_resource type="Texture2D" uid="uid://b2xsygb8gcsin" path="res://ART/spaceMiniMapEnemy.png" id="3_q5lxt"]
+[ext_resource type="Texture2D" uid="uid://ck2a8yfu3wphd" path="res://ART/spaceMiniMapAlert.png" id="4_334m6"]
+[ext_resource type="Texture2D" uid="uid://batrm78qjtea7" path="res://ART/spaceMiniMapRocket.png" id="6_cgf00"]
+
+[node name="MiniMap" type="MarginContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -280.0
+offset_right = -210.0
+offset_bottom = 70.0
+grow_horizontal = 0
+scale = Vector2(4, 4)
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_pqv5f")
+zoom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_ciy81")
+stretch_mode = 1
+
+[node name="PlayerMarker" type="Sprite2D" parent="MarginContainer/TextureRect"]
+texture_filter = 1
+position = Vector2(26, 26)
+texture = ExtResource("2_vy8h4")
+
+[node name="EnemyMarker" type="Sprite2D" parent="MarginContainer/TextureRect"]
+visible = false
+texture_filter = 1
+position = Vector2(77.5, 14.25)
+texture = ExtResource("3_q5lxt")
+
+[node name="AlertMarker" type="Sprite2D" parent="MarginContainer/TextureRect"]
+visible = false
+texture_filter = 1
+position = Vector2(105.25, 36.5)
+texture = ExtResource("4_334m6")
+
+[node name="MissleMarker" type="Sprite2D" parent="MarginContainer/TextureRect"]
+texture_filter = 1
+position = Vector2(105.25, 36.5)
+texture = ExtResource("6_cgf00")
+
+[node name="Frame" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_dgtro")
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9

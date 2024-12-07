@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpoelvlcykdko"]
+
+[ext_resource type="Script" path="res://SCRIPTS/enemy_spawner.gd" id="1_3s61o"]
+[ext_resource type="PackedScene" uid="uid://csinrjel78hjp" path="res://SCENES/curver.tscn" id="2_82k4k"]
+[ext_resource type="PackedScene" uid="uid://lgaaibvg0tjk" path="res://SCENES/centipede.tscn" id="3_xl4xo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t23ax"]
+
+[node name="EnemySpawner" type="Area2D"]
+monitoring = false
+monitorable = false
+script = ExtResource("1_3s61o")
+Curver = ExtResource("2_82k4k")
+Centipede = ExtResource("3_xl4xo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t23ax")

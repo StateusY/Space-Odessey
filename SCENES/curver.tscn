@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://csinrjel78hjp"]
+
+[ext_resource type="Script" path="res://SCRIPTS/curver.gd" id="1_g101f"]
+[ext_resource type="PackedScene" uid="uid://wrksir8pv3sq" path="res://SCENES/enemy_bullet.tscn" id="2_ar3ed"]
+[ext_resource type="Texture2D" uid="uid://rn4g15ps7424" path="res://ART/SpaceCurver.png" id="3_rkb33"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18hry"]
+
+[node name="Curver" type="Area2D" groups=["enemy"]]
+script = ExtResource("1_g101f")
+Bullet = ExtResource("2_ar3ed")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("3_rkb33")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.5, 1.75)
+shape = SubResource("RectangleShape2D_18hry")

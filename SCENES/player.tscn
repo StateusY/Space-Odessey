@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbk3nws0u28in"]
+
+[ext_resource type="Script" path="res://SCRIPTS/player.gd" id="1_xntse"]
+[ext_resource type="PackedScene" uid="uid://ccrkwhxvix53r" path="res://SCENES/bullet.tscn" id="2_44e15"]
+[ext_resource type="PackedScene" uid="uid://rdkbtasmaxkj" path="res://SCENES/shield.tscn" id="3_l0t42"]
+[ext_resource type="Texture2D" uid="uid://c8v3u23sjfk2u" path="res://ART/ShipBody.png" id="4_arbyj"]
+[ext_resource type="Texture2D" uid="uid://0o356djl15n" path="res://ART/ShipHead.png" id="5_xjkap"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ogdd"]
+
+[node name="player" type="Area2D" node_paths=PackedStringArray("MuzzleSprite", "MuzzlePoint") groups=["player"]]
+script = ExtResource("1_xntse")
+Bullet = ExtResource("2_44e15")
+MuzzleSprite = NodePath("Muzzle")
+MuzzlePoint = NodePath("Muzzle/Muzzle")
+shield = ExtResource("3_l0t42")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("4_arbyj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.935)
+scale = Vector2(1.405, 1.405)
+shape = SubResource("CapsuleShape2D_8ogdd")
+
+[node name="Muzzle" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -12)
+scale = Vector2(3, 3)
+texture = ExtResource("5_xjkap")
+
+[node name="Muzzle" type="Node2D" parent="Muzzle"]
+position = Vector2(0, -4.5)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
