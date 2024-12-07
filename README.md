@@ -1,4 +1,4 @@
-# Space-Odessey
+# Space-Odyssey
 A little arcade game made in 3 weeks for a comsci class.
 
 Play it here at itch.io: 
