@@ -1,7 +1,7 @@
 # Space-Odyssey
 A little arcade game made in 3 weeks for a comsci class.
 
-Play it here at itch.io: 
+Play it here at itch.io: https://stateus.itch.io/space-odyssey
 
 Made in Godot 4.3 with PhantomCamera.
 
